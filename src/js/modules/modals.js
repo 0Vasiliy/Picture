@@ -1,7 +1,7 @@
 // modal
 const modals = () => {
     //Передача селекторов и получение переменных
-    function bindModal(triggerSelector, modalSelector, closeSelector,closeClickOverlay = true) {
+    function bindModal(triggerSelector, modalSelector, closeSelector,destroy = false) {
         const trigger = document.querySelectorAll(triggerSelector),
               modal = document.querySelector(modalSelector),
               close = document.querySelector(closeSelector),
@@ -14,6 +14,10 @@ const modals = () => {
                 if (e.target) {
                     e.preventDefault();
                 } 
+
+                if(destroy){
+                    item.remove();
+                }
                 //закрываются все модальные окна
                 window.forEach(item =>{
                     item.style.display = "none";
@@ -38,23 +42,36 @@ const modals = () => {
 
         // Закрытие modal при клике вне модалного окна
         modal.addEventListener('click', (e) => {
-            if (e.target === modal && closeClickOverlay) {
+            if (e.target === modal) {
                 //закрываются все модальные окна
                 window.forEach(item =>{
                     item.style.display = "none";
                 })
                 modal.style.display = "none";
                 document.body.style.overflow = ""; 
+                let scroll = calcScroll();
                 document.body.style.marginRight = '0px';
             }
         });
     }
     
     // Функция всплытия модального окна через промежуток времени
+
     function showModalByTime(selector, time) {
         setTimeout(function() {
-            document.querySelector(selector).style.display = 'block';
-            document.body.style.overflow = "hidden";
+            let display;
+
+            document.querySelectorAll('[data-modal]').forEach(item => {
+                if (getComputedStyle(item).display !== 'none') {
+                    display = "block";
+                }
+            });
+
+            if (!display) {
+                document.querySelector(selector).style.display = 'block';
+                document.body.style.overflow = "hidden";
+                document.body.style.marginRight = '${scroll}px';
+            }
         }, time);
     }
     // Функция подсчитывает расстояние в px при открытиии модального окна и появления скролла
@@ -75,8 +92,9 @@ const modals = () => {
     // Вызов функций
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+    bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close',true);
 
-    showModalByTime('.popup-consultation', 5000);
+    showModalByTime('.popup-consultation', 60000);
    
 };
 
