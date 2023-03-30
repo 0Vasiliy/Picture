@@ -1085,7 +1085,8 @@ __webpack_require__.r(__webpack_exports__);
 // Слайдер
 var sliders = function sliders(slides, dir, prev, next) {
   // Переменная которая отображает текущий слайд
-  var slideIndex = 1; //Передача селекторов и получение переменных
+  var slideIndex = 1,
+      paused = false; //Передача селекторов и получение переменных
 
   var items = document.querySelectorAll(slides); // Функция слайдов
 
@@ -1129,7 +1130,35 @@ var sliders = function sliders(slides, dir, prev, next) {
       items[slideIndex - 1].classList.remove('slideInRight');
       items[slideIndex - 1].classList.add('slideInLeft');
     });
-  } catch (e) {}
+  } catch (e) {} // Функция автоматичческого слайдера и анимации
+
+
+  function activateAnimation() {
+    // Вертикальный слайдер 
+    if (dir === 'vertical') {
+      paused = setInterval(function () {
+        plusSlides(1);
+        items[slideIndex - 1].classList.add('slideInDown');
+      }, 3000);
+    } else {
+      // Горизонтальный слайдер 
+      paused = setInterval(function () {
+        plusSlides(1);
+        items[slideIndex - 1].classList.remove('slideInRight');
+        items[slideIndex - 1].classList.add('slideInLeft');
+      }, 3000);
+    }
+  }
+
+  activateAnimation(); // При наведении мышки останавлвается слайдер
+
+  items[0].parentNode.addEventListener('mouseenter', function () {
+    clearInterval(paused);
+  }); // при пропадании мышки активируется слайдер
+
+  items[0].parentNode.addEventListener('mouseleave', function () {
+    activateAnimation();
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sliders);

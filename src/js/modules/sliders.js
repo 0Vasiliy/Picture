@@ -1,7 +1,8 @@
 // Слайдер
 const sliders = (slides, dir, prev, next) => {
     // Переменная которая отображает текущий слайд
-    let slideIndex = 1; 
+    let slideIndex = 1,
+        paused = false; 
      //Передача селекторов и получение переменных
     const items =document.querySelectorAll(slides);
           
@@ -49,6 +50,36 @@ const sliders = (slides, dir, prev, next) => {
                 items[slideIndex - 1].classList.add('slideInLeft');
             });
         } catch(e){}
+
+
+        // Функция автоматичческого слайдера и анимации
+        function activateAnimation() {
+          // Вертикальный слайдер 
+          if (dir === 'vertical') {
+              paused = setInterval(function() {
+                  plusSlides(1);
+                  items[slideIndex - 1].classList.add('slideInDown');
+              }, 3000);
+          } else {
+            // Горизонтальный слайдер 
+              paused = setInterval(function() {
+                  plusSlides(1);
+                  items[slideIndex - 1].classList.remove('slideInRight');
+                  items[slideIndex - 1].classList.add('slideInLeft');
+              }, 3000);
+          }
+      }
+      activateAnimation();
+  
+        // При наведении мышки останавлвается слайдер
+      items[0].parentNode.addEventListener('mouseenter', () => {
+          clearInterval(paused);
+      });
+       // при пропадании мышки активируется слайдер
+      items[0].parentNode.addEventListener('mouseleave', () => {
+          activateAnimation();
+      });
+  
 
 };
 
