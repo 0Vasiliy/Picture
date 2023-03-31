@@ -39,17 +39,18 @@ const forms = () => {
             inputs.forEach(item =>{
             item.value = '';
         });
+        // Очищение всех элементов upload
         upload.forEach(item => {
             item.previousElementSibling.textContent = "Файл не выбран";
         });
     };
-
+    // Перебор всх инпутов
     upload.forEach(item => {
         item.addEventListener('input', () => {
-            console.log(item.files[0]);
             let dots;
+            // Разбивка строки на имя и после точки
             const arr = item.files[0].name.split('.');
-
+            // Проверка на длинну имени
             arr[0].length > 6 ? dots = "..." : dots = '.';
             const name = arr[0].substring(0, 6) + dots + arr[1];
             item.previousElementSibling.textContent = name;
