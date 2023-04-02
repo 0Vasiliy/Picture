@@ -1,15 +1,10 @@
 //Отправка формы на сайт
-
-// import chekNameinputs from "./chekNameinputs";
 const forms = () => {
     // Получаем элементы
     const form = document.querySelectorAll('form'),  
         inputs = document.querySelectorAll('input'),
         upload = document.querySelectorAll('[name="upload"]');
-        
-        // Проверка на не число и удаление не верных данных
-        // chekNameinputs('input[name="user_phone"]');
-     
+            
         // Создаём объект с сообщениями
     const message = {
         loading: 'Загрузка...',                      
