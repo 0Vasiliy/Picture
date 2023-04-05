@@ -1,3 +1,4 @@
+import {postData} from '../services/requests';
 //Отправка формы на сайт
 const forms = () => {
     // Получаем элементы
@@ -21,14 +22,6 @@ const forms = () => {
         question: 'assets/question.php'
     }
 
-     // Функция отвечает за отправку запроса
-    const postData = async (url, data) =>{                             
-        let res = await fetch(url,{
-            method: 'POST',
-            body: data
-        });
-        return await res.text();
-    }
   // Функция по очищению всех input
     const clearInputs = () =>{                                  
             inputs.forEach(item =>{
