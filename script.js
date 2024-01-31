@@ -5020,7 +5020,7 @@ var modals = function modals() {
       modal.style.display = "none";
       document.body.style.overflow = "";
       document.body.style.marginRight = '0px';
-    }); // Закрытие modal при клике вне модалного окна
+    }); // Закрытие modal при клике вне модального окна
 
     modal.addEventListener('click', function (e) {
       if (e.target === modal) {
