@@ -42,7 +42,7 @@ const modals = () => {
             document.body.style.marginRight = '0px';
         });
 
-        // Закрытие modal при клике вне модалного окна
+        // Закрытие modal при клике вне модального окна
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 //закрываются все модальные окна
