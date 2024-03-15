@@ -70,6 +70,7 @@ h4 {
   display: block;
   margin: 0 auto;
   font-family: 'Circe Bold', sans-serif;
+  cursor: pointer;
 }
 .button-transparent {
   background-color: transparent;
@@ -77,6 +78,7 @@ h4 {
   padding: 1.5rem 2rem;
   color: #c51abb;
   border: 2px solid #c51abb;
+  cursor: pointer;
 }
 .button-transparent:before {
   content: '';
@@ -88,6 +90,7 @@ h4 {
   top: 3px;
   right: 2px;
   background-size: 100%;
+  cursor: pointer;
 }
 .button-order {
   background-image: linear-gradient(66deg, #a12ab1 0%, #c818bc 100%);
@@ -97,6 +100,7 @@ h4 {
   color: #ffffff;
   border: 2px solid #c51abb;
   background-color: transparent;
+  cursor: pointer;
 }
 .fixed-gift {
   position: fixed;
@@ -108,6 +112,9 @@ h4 {
 }
 .header .container {
   padding: 0;
+}
+.burger{
+  cursor: pointer;
 }
 .header .burger {
   margin-right: -1rem;
@@ -250,6 +257,23 @@ h4 {
 
   opacity: 0;
   cursor: pointer;
+}
+.sliders{
+  display: flex;
+ 
+}
+/* .main-slider{
+  display: flex;
+  /* flex: 0 0 100%;
+  max-width: 100% */
+/* } */
+/* .main-slider-item{
+  display: flex;
+  flex: 0 0 70%;
+  max-width: 70%
+}  */
+.main-slider-item img{
+  max-width: 680px;
 }
 .main .file_upload > button {
   transition: background 0.2s;
@@ -1751,5 +1775,30 @@ h4 {
   .popup-content {
     padding: 3rem 3rem;
     width: 25rem;
+  }
+}
+@media (max-width: 1200px){
+  .main-slider-item img{
+    max-width: 580px;
+  }
+}
+@media (max-width: 800px){
+  .main-slider-item img{
+    max-width: 480px;
+  }
+}
+@media (max-width: 600px){
+  .main-slider-item img{
+    max-width: 380px;
+  }
+}
+@media (max-width: 450px){
+  .main-slider-item img{
+    max-width: 280px;
+  }
+}
+@media (max-width: 350px){
+  .main-slider-item img{
+    max-width: 200px;
   }
 }
