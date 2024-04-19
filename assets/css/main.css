@@ -33,6 +33,7 @@
 }
 html {
   font-size: 10px;
+  /* max-width: 1620px; */
 }
 body {
   font-family: 'Circe Regular', sans-serif;
@@ -110,6 +111,10 @@ h4 {
   right: 2rem;
   cursor: pointer;
 }
+.feedback-slider{
+  position:relative;
+   height: 400px;
+} 
 .header .container {
   padding: 0;
 }
@@ -259,19 +264,8 @@ h4 {
   cursor: pointer;
 }
 .sliders{
-  display: flex;
- 
+  display: flex; 
 }
-/* .main-slider{
-  display: flex;
-  /* flex: 0 0 100%;
-  max-width: 100% */
-/* } */
-/* .main-slider-item{
-  display: flex;
-  flex: 0 0 70%;
-  max-width: 70%
-}  */
 .main-slider-item img{
   max-width: 680px;
 }
@@ -1334,6 +1328,9 @@ h4 {
   }
 }
 @media (max-width: 1199px) {
+  .main-slider-item img{
+    max-width: 580px;
+  }
   .fixed-gift {
     display: none;
   }
@@ -1513,6 +1510,10 @@ h4 {
   .promo-2 img {
     left: -10%;
   }
+
+  .feedback-block img{
+    max-width: 300px;
+  }
   .feedback-heading {
     font-size: 2rem;
   }
@@ -1535,6 +1536,11 @@ h4 {
   .calc .button-transparent {
     margin: 4rem auto;
     width: auto;
+  }
+}
+@media (max-width: 800px){
+  .main-slider-item img{
+    max-width: 480px;
   }
 }
 @media (max-width: 767px) {
@@ -1597,6 +1603,15 @@ h4 {
   .feedback-heading {
     margin-top: 6rem;
   }
+  .feedback-block img{
+    max-width: 250px;
+  }
+  .feedback-slider{
+    height: auto;
+  } 
+  .feedback{
+    height: auto;
+  }
   .feedback .slick-slide img {
     left: 0;
     margin: 0 auto;
@@ -1619,6 +1634,7 @@ h4 {
     text-align: center;
   }
 }
+
 @media (max-width: 577px) {
   h2 {
     font-size: 3.5rem;
@@ -1777,28 +1793,15 @@ h4 {
     width: 25rem;
   }
 }
-@media (max-width: 1200px){
-  .main-slider-item img{
-    max-width: 580px;
-  }
-}
-@media (max-width: 800px){
-  .main-slider-item img{
-    max-width: 480px;
-  }
-}
-@media (max-width: 600px){
-  .main-slider-item img{
-    max-width: 380px;
-  }
-}
+
 @media (max-width: 450px){
   .main-slider-item img{
-    max-width: 280px;
+    max-width: 250px;
   }
 }
 @media (max-width: 350px){
   .main-slider-item img{
     max-width: 200px;
   }
+
 }
